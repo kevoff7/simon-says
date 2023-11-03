@@ -10,37 +10,36 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="bg-secondary-subtle">
     <header class="mt-3">
       <h1 class="text-info-emphasis text-center">Game Simon Says</h1>
     </header>
-
     <main class="mt-3">
-      <article>
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-6 bg-primary-subtle bg-gradient p-2 fs-4">Tap "Start Playing" to play!</div>
-            <div class="col-3">Round # -</div>
-            <div class="col-3">
-              <button type="button" class="btn btn-primary">Start Game</button>
-            </div>
+      <article class="container">
+        <div class="row align-items-center">
+          <div class="col-6 bg-primary-subtle bg-gradient p-2 fs-4">Tap "Start Playing" to play!</div>
+          <div class="col-3">Round # -</div>
+          <div class="col-3">
+            <button type="button" class="btn btn-primary" id="button-start">Start Game</button>
           </div>
         </div>
       </article>
 
-      <article>
-        <div class="container mt-3 d-grid justify-content-center align-items-center">
-          <div class="row">
-            <div class="col-6 m-3 bg-primary" style="height: 250px; width: 350px"></div>
-            <div class="col-6 m-3 bg-success" style="height: 250px; width: 350px"></div>
-          </div>
-          <div class="row">
-            <div class="col-6 m-3 bg-danger" style="height: 250px; width: 350px"></div>
-            <div class="col-6 m-3 bg-warning" style="height: 250px; width: 350px"></div>
-          </div>
+      <article class="container mt-3 d-grid justify-content-center align-items-center">
+        <div class="row" id="box-row-1">
+          <div class="col-6 m-3 bg-primary opacity-75 box"></div>
+          <div class="col-6 m-3 bg-success opacity-75 box"></div>
+        </div>
+        <div class="row" id="box-row-2">
+          <div class="col-6 m-3 bg-danger opacity-75 box"></div>
+          <div class="col-6 m-3 bg-warning opacity-75 box"></div>
         </div>
       </article>
     </main>
+
+    <script src="/index.js"></script>
   </body>
 </html>
+
