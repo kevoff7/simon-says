@@ -1,30 +1,39 @@
-let computerSequence = []
-
-function removeClassBox(box){
-    box.classList.remove('opacity-100')
+function removeClassBox(boxElement){
+    boxElement.classList.remove('opacity-100')
 }
 
-function addClassBox(box){
-    box.classList.add('opacity-100')
-    setTimeout(() => {
-        removeClassBox(box)
-    }, 500)
+function addClassBox(boxElement){
+    const transitionDuration = 500
+    boxElement.classList.add('opacity-100')
+     setTimeout(() => {
+        removeClassBox(boxElement)
+    }, transitionDuration)
+}
+  
+
+function showComputerSequence(boxElements,sequence){
+    const delayBetweenBoxes = 1000
+    for (let i = 0; i < sequence.length; i++) {
+        setTimeout(() => {
+            addClassBox(boxElements[sequence[i]])
+        }, i * delayBetweenBoxes)
+    }
 }
 
-function randomBox(){
-    const $boxes = document.querySelectorAll('.box')
-    const randomBox = Math.floor(Math.random() * $boxes.length)
-    const box = $boxes[randomBox];
-    addClassBox(box)
+function addRandomBox(sequence, maxIndex){
+    const randomBox = Math.floor(Math.random() * maxIndex)
+    sequence.push(randomBox)
 }
-
 
 function startGame(){
     const $buttonStart = document.querySelector('#button-start')
+    const $boxElements = document.querySelectorAll('.box')
+
+    const computerSequence = []
     $buttonStart.addEventListener('click', () => {
-        randomBox()
+            addRandomBox(computerSequence,$boxElements.length)
+            showComputerSequence($boxElements,computerSequence)
     })
 }
 
 startGame()
-
